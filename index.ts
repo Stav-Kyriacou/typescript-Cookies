@@ -49,12 +49,8 @@ function init() {
 // create the cookies as divs with the class name of cookie - see style.css
 // number of chocolatechips needs to be shown on the cookie
 function drawCookies() {
-  
-  for (let i = 0; i < cookiesDiv.children.length; i++){
-    cookiesDiv.removeChild(cookiesDiv.firstChild);
-  }
-  
-
+  //clears the div before drawing new cookies
+  cookiesDiv.innerHTML = "";
 
   for (let i = 0; i < cookies.length; i++){
     let newCookieDiv: HTMLDivElement = document.createElement('div');
@@ -64,8 +60,6 @@ function drawCookies() {
 
     cookiesDiv.appendChild(newCookieDiv);
   }
-
-
 }
 
 //TODO: this fuction needs to be triggered by button changeColour-btn
