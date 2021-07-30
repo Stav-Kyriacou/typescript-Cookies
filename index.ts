@@ -12,10 +12,12 @@ const cookieColourInput: HTMLInputElement = document.getElementById('cookieColou
 const cookiesDiv: HTMLElement = document.getElementById('cookiesDiv');
 const changeColourBtn: HTMLElement = document.getElementById('changeColour-btn');
 const addChopChipBtn: HTMLElement = document.getElementById('addChocolateChip-btn');
+const createCookieBtn: HTMLElement = document.getElementById('createCookie-btn');
 
 changeColourBtn.addEventListener('click', changeColour);
 addChopChipBtn.addEventListener('click', addChocolateChip);
 cookieSelector.addEventListener('change', getSelectedCookie);
+createCookieBtn.addEventListener('click', createCookie);
 
 
 init();
@@ -76,16 +78,29 @@ function changeColour() {
 //TODO: this fuction needs to be triggered by button addChocolateChip-btn
 // upon pressing the button it should add a chocolate chip to cookies selected from the dropdown
 function addChocolateChip() {
-
+  selectedCookie.chocChipNum++;
   updateDisplay();
 }
 
 function updateDisplay() {
-
   drawCookies();
 }
 
 function getSelectedCookie() {
   let selectedIndex: number = parseInt(cookieSelector.selectedOptions[0].value);
   selectedCookie = cookies[selectedIndex];
+}
+
+function createCookie() {
+  let name: string = 'Cookie ' + (cookies.length + 1);
+  let c: Cookie = new Cookie(name);
+  cookies.push(c);
+
+  let newOption: HTMLOptionElement = document.createElement('option');
+  newOption.innerHTML = c.name;
+  newOption.value = cookieSelector.options.length.toString();
+
+  cookieSelector.add(newOption);
+
+  drawCookies();
 }
