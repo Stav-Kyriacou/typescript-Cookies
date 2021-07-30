@@ -3,7 +3,7 @@ import './style.css';
 import { Cookie } from './models/Cookie';
 
 // Create a array/list of cookies named cookies
-
+let cookies: Array<Cookie> = [];
 
 // create an init() function
 // init() will create two cookies called Cookie1 and Cookie2, and add them to the array of cookies
