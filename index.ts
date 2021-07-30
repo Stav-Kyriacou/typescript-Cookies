@@ -5,16 +5,35 @@ import { Cookie } from './models/Cookie';
 // Create a array/list of cookies named cookies
 let cookies: Array<Cookie> = [];
 
+const cookieSelector: HTMLSelectElement = document.getElementById('cookieSelector') as HTMLSelectElement;
+const cookieColourInput: HTMLInputElement = document.getElementById('cookieColour-inp') as HTMLInputElement;
+
+init();
+
 // create an init() function
 // init() will create two cookies called Cookie1 and Cookie2, and add them to the array of cookies
 function init() {
   //TODO: add code here
   // create the two cookies
-  // add them to the array
-  // add them as options in the select/dropdown (cookieSelector) element
+  let c1: Cookie = new Cookie('Cookie 1');
+  let c2: Cookie = new Cookie('Cookie 2');
 
+  // add them to the array
+  cookies.push(c1);
+  cookies.push(c2);
+
+  // add them as options in the select/dropdown (cookieSelector) element
+  for (let i = 0; i < cookies.length; i++) {
+    let newOption: HTMLOptionElement = document.createElement('option');
+    newOption.innerHTML = cookies[i].name;
+    newOption.value = i.toString();
+
+    cookieSelector.add(newOption);
+  }
 
   // initialise the cookieColour-inp to the colour of the first cookie created
+  cookieColourInput.value = cookies[0].colour;
+
 
   updateDisplay();
 }
