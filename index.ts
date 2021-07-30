@@ -7,6 +7,7 @@ let cookies: Array<Cookie> = [];
 
 const cookieSelector: HTMLSelectElement = document.getElementById('cookieSelector') as HTMLSelectElement;
 const cookieColourInput: HTMLInputElement = document.getElementById('cookieColour-inp') as HTMLInputElement;
+const cookiesDiv: HTMLElement = document.getElementById('cookiesDiv');
 
 init();
 
@@ -42,6 +43,16 @@ function init() {
 // create the cookies as divs with the class name of cookie - see style.css
 // number of chocolatechips needs to be shown on the cookie
 function drawCookies() {
+
+  for (let i = 0; i < cookies.length; i++){
+    let newCookieDiv: HTMLDivElement = document.createElement('div');
+    newCookieDiv.className = 'cookie';
+    newCookieDiv.innerHTML = cookies[i].chocChipNum.toString();
+    newCookieDiv.style.backgroundColor = cookies[i].colour;
+
+    cookiesDiv.appendChild(newCookieDiv);
+  }
+
 
 }
 
