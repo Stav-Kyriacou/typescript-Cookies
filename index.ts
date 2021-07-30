@@ -5,6 +5,8 @@ import { Cookie } from './models/Cookie';
 // Create a array/list of cookies named cookies
 let cookies: Array<Cookie> = [];
 
+let selectedCookie: Cookie;
+
 const cookieSelector: HTMLSelectElement = document.getElementById('cookieSelector') as HTMLSelectElement;
 const cookieColourInput: HTMLInputElement = document.getElementById('cookieColour-inp') as HTMLInputElement;
 const cookiesDiv: HTMLElement = document.getElementById('cookiesDiv');
@@ -13,6 +15,7 @@ const addChopChipBtn: HTMLElement = document.getElementById('addChocolateChip-bt
 
 changeColourBtn.addEventListener('click', changeColour);
 addChopChipBtn.addEventListener('click', addChocolateChip);
+cookieSelector.addEventListener('change', getSelectedCookie);
 
 
 init();
@@ -41,6 +44,7 @@ function init() {
   // initialise the cookieColour-inp to the colour of the first cookie created
   cookieColourInput.value = cookies[0].colour;
 
+  selectedCookie = cookies[0];
 
   updateDisplay();
 }
@@ -65,7 +69,7 @@ function drawCookies() {
 //TODO: this fuction needs to be triggered by button changeColour-btn
 // upon pressing the button it should change the colour of the cookie selected in the dropdown to the colour typed in the input element (cookieColour-inp)
 function changeColour() {
-
+  selectedCookie.colour = cookieColourInput.value;
   updateDisplay();
 }
 
@@ -79,4 +83,9 @@ function addChocolateChip() {
 function updateDisplay() {
 
   drawCookies();
+}
+
+function getSelectedCookie() {
+  let selectedIndex: number = parseInt(cookieSelector.selectedOptions[0].value);
+  selectedCookie = cookies[selectedIndex];
 }
