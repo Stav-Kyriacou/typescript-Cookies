@@ -1,6 +1,7 @@
 // Import stylesheets
 import './style.css';
 import { Cookie } from './models/Cookie';
+import {Colours} from './models/Colours.enum';
 
 // Create a array/list of cookies named cookies
 let cookies: Array<Cookie> = [];
@@ -8,6 +9,7 @@ let cookies: Array<Cookie> = [];
 let selectedCookie: Cookie;
 
 const cookieSelector: HTMLSelectElement = document.getElementById('cookieSelector') as HTMLSelectElement;
+const colourSelector: HTMLSelectElement = document.getElementById('colourSelector') as HTMLSelectElement;
 const cookieColourInput: HTMLInputElement = document.getElementById('cookieColour-inp') as HTMLInputElement;
 const cookiesDiv: HTMLElement = document.getElementById('cookiesDiv');
 const changeColourBtn: HTMLElement = document.getElementById('changeColour-btn');
@@ -41,6 +43,13 @@ function init() {
     newOption.value = i.toString();
 
     cookieSelector.add(newOption);
+  }
+
+  for (let c in Colours) {
+    let newOption: HTMLOptionElement = document.createElement('option');
+    newOption.innerHTML = c;
+
+    colourSelector.add(newOption);
   }
 
   // initialise the cookieColour-inp to the colour of the first cookie created

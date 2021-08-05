@@ -1,3 +1,5 @@
+// import {Colours} from './Colours.enum';
+
 export class Cookie {
   //TODO - Cookies have three attributes; name, colour, chocolateChipNum
   // colour is a string
@@ -9,7 +11,7 @@ export class Cookie {
 
   constructor(name: string){
     this.name = name;
-    this.colour = 'brown';
+    this.colour = "brown";
     this.chocChipNum = 0;
   }
 }
