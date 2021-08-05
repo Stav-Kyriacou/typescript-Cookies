@@ -15,7 +15,7 @@ h1, h2 {
 .sprinkle {
   width: 25px;
   height: 25px;
-  color: black;
+  color: white;
   display: flex;
   align-items: center; /* vertical alignment */
   justify-content: center; /* horizontal alignment */

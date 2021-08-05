@@ -34,7 +34,7 @@ function init() {
   // create the two cookies
   let c1: Cookie = new Cookie('Cookie 1');
   let c2: Cookie = new Cookie('Cookie 2');
-  let c3: SprinkleCookie = new SprinkleCookie('Cookie 3', Colours.Pink);
+  let c3: SprinkleCookie = new SprinkleCookie('Cookie 3', Colours.Black);
 
   // add them to the array
   cookies.push(c1);
@@ -85,14 +85,17 @@ function drawCookies() {
       newCookieDiv.className = 'cookie';
       newCookieDiv.style.backgroundColor = cookies[i].colour;
       
+      //create sprinkle div which goes inside the cookie div
       let sprinkleDiv: HTMLDivElement = document.createElement('div');
       sprinkleDiv.innerHTML = cookies[i].chocChipNum.toString();
       sprinkleDiv.className = 'sprinkle';
       sprinkleDiv.style.backgroundColor = c.sprinkleColour;
 
-      newCookieDiv.appendChild(sprinkleDiv);
+      //change colour of text so it is readable on white and black backgrounds
+      c.sprinkleColour === Colours.White ? sprinkleDiv.style.color = 'Black' : sprinkleDiv.style.color = 'White';
 
-      
+
+      newCookieDiv.appendChild(sprinkleDiv);
       cookiesDiv.appendChild(newCookieDiv);
     }
     else {
