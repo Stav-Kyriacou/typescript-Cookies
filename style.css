@@ -11,3 +11,12 @@ h1, h2 {
   align-items: center; /* vertical alignment */
   justify-content: center; /* horizontal alignment */
 }
+
+.sprinkle {
+  width: 25px;
+  height: 25px;
+  color: black;
+  display: flex;
+  align-items: center; /* vertical alignment */
+  justify-content: center; /* horizontal alignment */
+}
