@@ -5,3 +5,8 @@ export enum Colours {
   Pink = "Pink",
   Blue = "Blue"
 }
+
+export enum Colours2 {
+  White,
+  Black
+}

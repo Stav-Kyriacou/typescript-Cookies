@@ -2,6 +2,7 @@
 import './style.css';
 import { Cookie } from './models/Cookie';
 import {Colours} from './models/Colours.enum';
+import {Colours2} from './models/Colours.enum';
 import { SprinkleCookie } from './models/SprinkleCookie';
 
 // Create a array/list of cookies named cookies
@@ -56,7 +57,6 @@ function init() {
     newOption.innerHTML = c;
     newOption.value = counter.toString();
     counter++;
-
     colourSelector.add(newOption);
   }
 
@@ -146,7 +146,7 @@ function createCookie() {
   drawCookies();
 }
 function createSprinkleCookie() {
-  let c: SprinkleCookie = new SprinkleCookie('Sprinkle Cookie', Colours.Blue);
+  let c: SprinkleCookie = new SprinkleCookie('Sprinkle Cookie', Colours[colourSelector.selectedOptions[0].innerHTML]);
   cookies.push(c);
 
   let newOption: HTMLOptionElement = document.createElement('option');
