@@ -2,7 +2,6 @@
 import './style.css';
 import { Cookie } from './models/Cookie';
 import {Colours} from './models/Colours.enum';
-import {Colours2} from './models/Colours.enum';
 import { SprinkleCookie } from './models/SprinkleCookie';
 
 // Create a array/list of cookies named cookies
